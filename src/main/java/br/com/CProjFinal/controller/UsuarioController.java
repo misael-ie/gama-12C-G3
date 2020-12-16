@@ -30,7 +30,7 @@ public class UsuarioController {
 	
 	@PostMapping("/login_racf")
 	public ResponseEntity<Usuario> logar_racf(@RequestBody Usuario objeto) {
-		Usuario response = dao.findByRacfAndSenha(objeto.getEmail(), objeto.getSenha());
+		Usuario response = dao.findByRacfAndSenha(objeto.getRacf(), objeto.getSenha());
 		if (response == null) {
 			return ResponseEntity.status(403).build();
 		}
