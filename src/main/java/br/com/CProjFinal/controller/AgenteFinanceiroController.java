@@ -46,6 +46,10 @@ public class AgenteFinanceiroController {
 		return ResponseEntity.ok(lista);
 	}
 	
+	@GetMapping("/ag_trans_vol/{id}")
+	public ResponseEntity<Integer> getTransVol(@PathVariable int id){ 
+		return ResponseEntity.ok(dao.findByIdMe(id));
+	}
 	
 	
 }
