@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.CProjFinal.beans.AgenteFinanceiro;
 import br.com.CProjFinal.dao.AgenteFinanceiroDAO;
 
+
 @RestController
 @CrossOrigin("*")
 public class AgenteFinanceiroController {
@@ -37,5 +38,14 @@ public class AgenteFinanceiroController {
 		}
 		return ResponseEntity.ok(objeto);
 	}
+	
+	// FIX: Retornar somente os campos nome_agente, volume_transacional
+	@GetMapping("/top_ag_financeiros")
+	public ResponseEntity<List<AgenteFinanceiro>> getTop10(){ 
+		List<AgenteFinanceiro> lista = (List<AgenteFinanceiro>) dao.findByTop();
+		return ResponseEntity.ok(lista);
+	}
+	
+	
 	
 }
