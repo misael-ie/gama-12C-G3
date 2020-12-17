@@ -50,4 +50,26 @@ public class TransacaoController {
 		return ResponseEntity.ok(lista);
 	}	
 	
+	//Pós feedback
+	// TODO: Retornar um JSON melhor
+	@GetMapping("/success/{id}")
+	public ResponseEntity<Integer> getAgentSuccess(@PathVariable int id){
+		return ResponseEntity.ok(dao.findBySuccess(id));
+	}
+	
+	@GetMapping("/fail/{id}")
+	public ResponseEntity<Integer> getAgentFail(@PathVariable int id){
+		return ResponseEntity.ok(dao.findByFail(id));
+	}
+	
+	@GetMapping("/fraud/{id}")
+	public ResponseEntity<Integer> getAgentFraud(@PathVariable int id){
+		return ResponseEntity.ok(dao.findByFraud(id));
+	}
+	
+	@GetMapping("/total/{id}")
+	public ResponseEntity<Integer> getAgentTotal(@PathVariable int id){
+		return ResponseEntity.ok(dao.findByTotal(id));
+	}
+	
 }
