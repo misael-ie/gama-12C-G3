@@ -41,8 +41,8 @@ public class AgenteFinanceiroController {
 	
 	// FIX: Retornar somente os campos nome_agente, volume_transacional
 	@GetMapping("/top_ag_financeiros")
-	public ResponseEntity<List<AgenteFinanceiro>> getTop10(){ 
-		List<AgenteFinanceiro> lista = (List<AgenteFinanceiro>) dao.findByTop();
+	public ResponseEntity<List<SimpleAgent>> getTop10(){ 
+		List<SimpleAgent> lista = (List<SimpleAgent>) dao.findByTop();
 		return ResponseEntity.ok(lista);
 	}
 	
